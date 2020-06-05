@@ -15,6 +15,7 @@ El contenido de este documento esta basado en el curso del mismo nombre dictado 
     - [Objetivos](#Objetivos)
     - [Programación orientada a objetos en Python](#Programación-orientada-a-objetos-en-Python)
     - [Tipos de datos abstractos y clases, Instancias](#Tipos-de-datos-abstractos-y-clases,-Instancias)
+    - [Decomposición](#Decomposición)
 
 # Programación Orientada a Objetos
 
@@ -123,7 +124,7 @@ Ahora que ya sabemos qué son las clases y cómo las podemos utilizar en nuestro
 
 En Python todo es un objeto y tiene un tipo, esto significa que todo lo que hacemos en nuestro programa tiene una representación en memoria, los datos y el comportamiento se puede encapsular en un objeto.
 
-Los tipos nos permiten modelar y manipular el mundo a traves de la programación.
+Los tipos nos permiten modelar y manipular el mundo a través de la programación.
 
 Las formas de interactuar con un objeto:
 
@@ -133,7 +134,7 @@ Las formas de interactuar con un objeto:
 
 Cuando trabajamos con programación orientada a objetos tenemos varias ventajas: 
 
-- **Decomposición:** podemos estructurarlos en objetos mas pequeños.
+- **De composición:** podemos estructurarlos en objetos mas pequeños.
 - **Abstracción:** no nos preocupamos el funcionamiento del proceso de su comportamiento.
 - **Encapsulación:** podemos esconder ciertos datos que solo son relevantes internamente en el objeto.
 
@@ -185,7 +186,7 @@ Los atributos de clase nos permiten:
 - Procedimientos para interactuar con los mismos (métodos).
 - Mecanismos para esconder la representación.
 
-Para acceder a los atributos de estos objetos se hace a traves de la notación de punto. Ademas puede tener atributos privados (Por convención comienzan con _ ).
+Para acceder a los atributos de estos objetos se hace a través de la notación de punto. Además puede tener atributos privados (Por convención comienzan con _ ).
 
 ```py
 class Coordenada:
@@ -210,4 +211,57 @@ if __name__ == '__main__'
     # Para ver si una variable es una instancia de una clase
     # podemos verificar con isinstance
     print(isinstance(coord_2, Coordenada))
+```
+
+## Decomposición
+
+La **decomposición** es un concepto simple pero poderoso que implica:
+- Dividir un problema en problemas más pequeños.
+- Las clases permiten crear mayores abstracciones en forma de componentes.
+- Cada clase se encarga de una parte del problema y el programa se vuelve más fácil de mantener.
+
+Para realizar un ejemplo de decomposición modelaremos un automóvil.
+
+```py
+# Creamos la clase Automóvil.
+class Automovil:
+
+    # El constructor creara todas las características de la instancia.
+    def __init__(self, modelo, marca, color):
+        self.modelo = modelo
+        self.marca = marca
+        self.color = color
+        self._estado = 'en_reposo'
+        self._motor = Motor(cilindros=4) # Hacemos referencia a la clase Motor.
+
+
+    # La clase automóvil tiene el método de acelerar.
+    def acelerar(self, tipo='despacio'):
+        if tipo == 'rapida':
+            # De la clase Motor ejecuta el método inyecta_gasolina.
+            self._motor.inyecta_gasolina(10)
+        else:
+            self._motor.inyecta_gasolina(3)
+
+        self._estado = 'en_movimiento'
+
+
+    def frenar(self):
+        self._motor.inyecta_gasolina(0)
+        self._estado = 'en_reposo'
+
+
+# Creamos la clase Motor
+class Motor:
+
+    # Con el constructor definimos sus características.
+    def __init__(self, cilindros, tipo='gasolina'):
+        self.cilindros = cilindros
+        self.tipo = tipo
+        self._temperatura = 0
+
+
+    # La clase motor tiene el método de inyecta_gasolina.
+    def inyecta_gasolina(self, cantidad):
+        pass
 ```
