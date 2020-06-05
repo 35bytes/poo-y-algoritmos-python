@@ -17,6 +17,7 @@ El contenido de este documento esta basado en el curso del mismo nombre dictado 
     - [Tipos de datos abstractos y clases, Instancias](#Tipos-de-datos-abstractos-y-clases,-Instancias)
     - [Decomposición](#Decomposición)
     - [Abstracción](#Abstracción)
+    - [Encapsulación, getters and setters](#Encapsulación,-getters-and-setters)
 
 # Programación Orientada a Objetos
 
@@ -312,4 +313,50 @@ class Lavadora:
 if __name__ == '__main__':
     lavadora = Lavadora()
     lavadora.lavar() # Ejecutamos el método publico de nuestra instancia.
+```
+
+## Encapsulación, getters and setters
+
+La **encapsulación** nos permite agrupar datos y su comportamiento, controla el acceso a dichos datos y previene modificaciones no autorizadas.
+
+En el siguiente ejemplo podrás ver que los datos son privados, pero podemos acceder y modificarlos a través de métodos.
+
+```py
+class CasillaDeVotacion:
+
+
+    def __init__(self, identificador, pais):
+        self._indentificador = identificador
+        self._pais = pasi
+        self._region = None
+
+
+    # Para que nuestra función funcione con dot notation
+    # utilizamos el decorador @property
+    @property
+    def region(self):
+        return self._region
+
+
+    # Para crear un setter que funcione con dot notation
+    # primero hacemos referencia al nombre de la propiedad seguido
+    # de .setter (@region.setter)
+    @region.setter
+    def set_region(self, region):
+        if region in self._pais:
+            self._region = region
+
+
+        raise ValueError(f'La región {region} no es valida en {self._pais}')
+```
+
+En consola ejecutamos nuestro script y veremos como instanciamos la clase.
+
+```bash
+>>> casilla = CasillaDeVotacion(123, ['Ciudad de México', 'Morelos'])
+>>> casilla.region
+None
+>>> casilla.region = 'Ciudad de México'
+>>> casilla.region
+'Ciudad de México'
 ```
