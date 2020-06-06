@@ -26,6 +26,8 @@ El contenido de este documento esta basado en el curso del mismo nombre dictado 
     - [Conteo abstracto de operación](#Conteo-abstracto-de-operación)
     - [Notación asintótica](#Notación-asintótica)
     - [Clases de complejidad algorítmica](#Clases-de-complejidad-algorítmica)
+- [Algoritmos de búsqueda y ordenación](#Algoritmos-de-búsqueda-y-ordenación)
+    - [Búsqueda lineal](#Búsqueda-lineal)
 
 # Programación Orientada a Objetos
 
@@ -603,3 +605,36 @@ Existen distintos tipos de complejidad algorítmica:
 <div align="center"> 
   <img src="readme_img/big-o-complexity-chart.png" width="70%">
 </div>
+
+# Algoritmos de búsqueda y ordenación
+
+## Búsqueda lineal
+
+La **búsqueda lineal** es un algoritmo muy sencillo. Consta en buscar si un elemento se encuentra dentro de una lista, array o un sistema ordenado o no ordenado para poder determinar si el elemento se encuentra en el o forma parte de el.
+
+```py
+import random
+
+def busqueda_lineal(lista, objetivo):
+    match = False
+
+    for elemento in lista: # O(n)
+        if elemento == objetivo:
+            match = True
+            break
+
+    return match
+
+
+if __name__ == '__main__':
+    tamano_de_lista = int(input('De que tamano sera la lista? '))
+    objetivo = int(input('Que numero quieres encontrar? '))
+
+    lista = [random.randint(0, 100) for i in range(tamano_de_lista)]
+
+    encontrado = busqueda_lineal(lista, objetivo)
+    print(lista)
+    print(f'El elemento {objetivo} {"esta" if encontrado else "no esta"} en la lista')
+```
+
+¿Cuál es el peor caso del código anterior? Si nos fijamos existe un **for loop** que crece según el tamaño de la lista, por lo cual nuestro Big O es O(n).
