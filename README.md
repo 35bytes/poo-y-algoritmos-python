@@ -36,6 +36,8 @@ El contenido de este documento esta basado en el curso del mismo nombre dictado 
 - [Graficado](#Graficado)
     - [¿Por qué graficar?](#¿Por-qué-graficar?)
     - [Graficado simple](#Graficado-simple)
+- [Algoritmos de optimización](#Algoritmos-de-optimización)
+    - [Introducción a la optimización](#Introducción-a-la-optimización)
 
 # Programación Orientada a Objetos
 
@@ -899,7 +901,7 @@ pip freeze          # Con pip freeze veremos que librerías están instaladas.
 
 ## ¿Por qué graficar?
 
-Es importante que podamos traducir los datos que nos arrojan nuestro programas en un elemento visual, asi podemos realizar reconocimientos de patrones, predicción de series, simplifica la interpretación y la conclusiones acerca de los datos.
+Es importante que podamos traducir los datos que nos arrojan nuestro programa en un elemento visual, así podemos realizar reconocimientos de patrones, predicción de series, simplifica la interpretación y la conclusión acerca de los datos.
 
 <div align="center"> 
   <img src="readme_img/grafico.svg" width="80%">
@@ -927,3 +929,9 @@ if __name__ == '__main__':
     fig.line(x_vals, y_vals, line_width=2)
     show(fig)
 ```
+
+# Algoritmos de optimización
+
+## Introducción a la optimización
+
+El concepto de **optimización** permite resolver muchos problemas de manera computacional. Cuando pensamos en un algoritmo de optimización debemos definir una función objetivo que debemos maximizar o minimizar, respetando una serie de limitantes que definamos. 
