@@ -22,6 +22,8 @@ El contenido de este documento esta basado en el curso del mismo nombre dictado 
     - [Polimorfismo](#Polimorfismo)
 - [Complejidad algorítmica](#Complejidad-algorítmica)
     - [Introducción a la complejidad algorítmica](#Introducción-a-la-complejidad-algorítmica)
+    - [Medición temporal](#Medición-temporal)
+    - [Conteo abstracto de operación](#Conteo-abstracto-de-operación)
 
 # Programación Orientada a Objetos
 
@@ -458,6 +460,8 @@ La complejidad algorítmica temporal la podemos definir como **T(n)** el cual de
 
 - Contar los pasos conforme nos aproximamos al infinito pero con una medida asintótica.
 
+## Medición temporal
+
 Para una realizar una medida temporal simplemente calculamos la diferencia del tiempo previo y posterior de la ejecución del algoritmo.
 
 ```py
@@ -492,4 +496,27 @@ if __name__ == '__main__':
     factorial_r(n)
     final = time.time()
     print(final - comienzo)
+```
+
+## Conteo abstracto de operación
+
+Con esta técnica contamos los pasos que realiza nuestro algoritmo. En el siguiente ejemplo `respuesta` tendrá los números de pasos que realiza nuestro código al ejecutar.
+
+```py
+def f(x):
+
+    respuesta = 0
+
+    for i in range(1000):
+        respuesta += 1
+
+    for i in range(x):
+        respuesta += x
+
+    for i in range(x):
+        for j in range(x):
+            respuesta += 1
+            respuesta += 1
+
+    return respuesta
 ```
