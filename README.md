@@ -33,6 +33,9 @@ El contenido de este documento esta basado en el curso del mismo nombre dictado 
     - [Ordenamiento por inserción](#Ordenamiento-por-inserción)
     - [Ordenamiento por mezcla](#Ordenamiento-por-mezcla)
 - [Ambientes virtuales](#Ambientes-virtuales)
+- [Graficado](#Graficado)
+    - [¿Por qué graficar?](#¿Por-qué-graficar?)
+    - [Graficado simple](#Graficado-simple)
 
 # Programación Orientada a Objetos
 
@@ -890,3 +893,37 @@ Para poder instalar librerías lo haremos con el comando pip.
 ```bash
 pip install bokeh   # pip install instalara la librería.
 pip freeze          # Con pip freeze veremos que librerías están instaladas.
+```
+
+# Graficado
+
+## ¿Por qué graficar?
+
+Es importante que podamos traducir los datos que nos arrojan nuestro programas en un elemento visual, asi podemos realizar reconocimientos de patrones, predicción de series, simplifica la interpretación y la conclusiones acerca de los datos.
+
+<div align="center"> 
+  <img src="readme_img/grafico.svg" width="80%">
+</div>
+
+## Graficado simple
+
+La librería [**Bokeh**](http://docs.bokeh.org/en/latest/index.html) permite construir gráficas complejas de manera rápida y con comandos simples, también nos permite exportar a varios formatos como html, notebooks, imágenes, etc. [**Bokeh**](http://docs.bokeh.org/en/latest/index.html#) se puede utilizar en el servidor con **Flask** y **Django**.
+
+```py
+from bokeh.plotting import figure, output_file, show
+
+if __name__ == '__main__':
+    output_file('graficado_simple.html')
+    fig = figure()
+    
+    total_vals = int(input('Cuantos valores quieres graficar?'))
+    x_vals = list(range(total_vals))
+    y_vals = []
+
+    for x in x_vals:
+        val = int(input(f'Valor y para {x}'))
+        y_vals.append(val)
+
+    fig.line(x_vals, y_vals, line_width=2)
+    show(fig)
+```
