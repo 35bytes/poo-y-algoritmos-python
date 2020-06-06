@@ -656,14 +656,24 @@ La **búsqueda binaria** toma una estrategia llamada "Divide y conquista", la cu
 
 La **búsqueda binaria** es uno de los mejores algoritmos que se tienen hoy en día para búsqueda, ya que reduce significativamente el numero de pasos, y así disminuyendo nuestro Big O.
 
-### Caso Promedio
+<div align="center">
+  <h4>Caso Promedio</h4>
+</div>
 
 <div align="center"> 
   <img src="readme_img/binary-and-linear-search-animations.gif" width="70%">
 </div>
 
+<div align="center">
+  <h4>Peor de los Casos</h4>
+</div>
+
 <div align="center"> 
   <img src="readme_img/linear-vs-binary-search-worst-case.gif" width="70%">
+</div>
+
+<div align="center">
+  <h4>Mejor de los Casos</h4>
 </div>
 
 <div align="center"> 
