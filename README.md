@@ -432,7 +432,7 @@ class Persona:
         self.nombre = nombre
 
     # Definimos el método avanzar.
-    def avanzar(self):
+    def avanza(self):
         print('Ando caminando')
 
 
@@ -445,7 +445,7 @@ class Ciclista(Persona):
 
     # Para aplicar polimorfismo en el método de la superclase
     # simplemente definimos su comportamiento y nombrando el método.
-    def avanzar(self):
+    def avanza(self):
         print('Ando moviendome en mi bicicleta')
 
 
