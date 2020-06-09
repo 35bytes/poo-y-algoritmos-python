@@ -348,7 +348,7 @@ class CasillaDeVotacion:
 
     def __init__(self, identificador, pais):
         self._indentificador = identificador
-        self._pais = pasi
+        self._pais = pais
         self._region = None
 
 
@@ -363,23 +363,27 @@ class CasillaDeVotacion:
     # primero hacemos referencia al nombre de la propiedad seguido
     # de .setter (@region.setter)
     @region.setter
-    def set_region(self, region):
+    def region(self, region):
         if region in self._pais:
             self._region = region
+        else:
+            raise ValueError(f'La región {region} no es válida en {self._pais}')
 
 
-        raise ValueError(f'La región {region} no es valida en {self._pais}')
+casilla = CasillaDeVotacion(123, ['Ciudad de México', 'Morelos'])
+print(casilla.region)
+casilla.region = 'Ciudad de México'
+print(casilla.region)
 ```
 
-En consola ejecutamos nuestro script y veremos como instanciamos la clase.
+En consola ejecutamos nuestro script y veremos los resultados.
 
 ```bash
->>> casilla = CasillaDeVotacion(123, ['Ciudad de México', 'Morelos'])
->>> casilla.region
+python3 casilla.py  # Ejecutamos nuestro código.
+
+# Y estos serán nuestros resultados.
 None
->>> casilla.region = 'Ciudad de México'
->>> casilla.region
-'Ciudad de México'
+Ciudad de México
 ```
 
 ## Herencia
