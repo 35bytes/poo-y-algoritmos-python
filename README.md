@@ -912,6 +912,12 @@ pip install bokeh   # pip install instalara la librería.
 pip freeze          # Con pip freeze veremos que librerías están instaladas.
 ```
 
+Para desactivar el ambiente virtual lo haremos con el siguiente comando.
+
+```bash
+deactivate          # Comando para desactivar ambiente Virtual
+```
+
 # Graficado
 
 ## ¿Por qué graficar?
